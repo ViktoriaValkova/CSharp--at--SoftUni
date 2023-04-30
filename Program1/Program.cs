@@ -18,6 +18,8 @@
            //var sequence = Enumerable.Range(firstNum, secondNum - firstNum + 1);
            //Console.WriteLine(string.Join(' ', sequence));
            //Console.WriteLine($"Sum: {sequence.Sum()}");
+
+            // testing 
         }
     }
 }
