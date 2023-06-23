@@ -26,7 +26,7 @@ namespace _04._Fishing_Boat
             {
                 rent *= 0.9; 
             }
-            if (fishermenCount > 7 && fishermenCount <= 11)
+            if (fishermenCount > 6 && fishermenCount <= 11)
             {
                 rent *= 0.85;
             }
