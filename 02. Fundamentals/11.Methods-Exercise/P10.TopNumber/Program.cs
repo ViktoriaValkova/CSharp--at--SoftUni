@@ -11,12 +11,7 @@
                 {
                     Console.WriteLine(i);
                 }
-            }
-
-            
-                
-
-
+            } 
         }
         static bool DivisibleByEight(int number)
         {
