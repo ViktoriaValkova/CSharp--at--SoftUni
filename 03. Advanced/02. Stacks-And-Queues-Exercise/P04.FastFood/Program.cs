@@ -5,32 +5,34 @@
 		static void Main(string[] args)
 		{
 			int foodQnt = int.Parse(Console.ReadLine());
-			int[] orders = Console.ReadLine()
-				.Split()
-				.Select(x=>int.Parse(x))
-				.ToArray();
+			//int[] orders = Console.ReadLine()
+			//	.Split()
+			//	.Select(x=>int.Parse(x))
+			//	.ToArray();
 
-			Queue<int> queue = new Queue<int>(orders);
+			//Queue<int> queue = new Queue<int>(orders);
+
+			Queue<int> queue = new(
+				Console.ReadLine()
+					.Split(' ', StringSplitOptions.RemoveEmptyEntries)
+					.Select(x => int.Parse(x)));
 
 			Console.WriteLine(queue.Max());
 
-			while (queue.Count > 0 ) 
+			while (queue.Any())
 			{
-				int currentOrder = queue.Peek();
-				if (currentOrder <= foodQnt)
-				{
-					queue.Dequeue();
-					foodQnt-= currentOrder;
-				}
-				else
+				foodQnt -= queue.Peek();
+				if (foodQnt < 0)
 				{
 					break;
 				}
+
+				queue.Dequeue();
 			}
-               
+
 			if (queue.Count > 0)
 			{
-				Console.WriteLine($"Orders left: {string.Join(' ',queue )}");
+				Console.WriteLine($"Orders left: {string.Join(' ', queue)}");
 			}
 			else
 			{

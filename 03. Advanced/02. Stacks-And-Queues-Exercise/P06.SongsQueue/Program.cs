@@ -20,13 +20,8 @@ namespace P06.SongsQueue
 						queue.Dequeue();
 						break;
 					case "Add":
-						string newSong = string.Empty;
-						for (int i = 1; i < cmdArg.Length-1; i++)
-						{
-							newSong += $"{cmdArg[i]} ";
-						}
-
-						newSong += cmdArg[cmdArg.Length-1];
+						string newSong = string.Join(' ', cmdArg.Skip(1));
+					//	newSong = string.Join(' ', cmdArg[1..]);
 						if (!queue.Contains(newSong))
 						{
 							queue.Enqueue(newSong);
