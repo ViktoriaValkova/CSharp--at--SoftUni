@@ -9,13 +9,12 @@
 				.Select(int.Parse)
 				.ToArray();
 			(int rows, int cols) = (dimensions[0], dimensions[1]);
-			char[,] matrix = new Char[rows, cols];
+			string[,] matrix = new string[rows, cols];
 
 			for (int r = 0; r < rows; r++)
 			{
-				char[] currentRows = Console.ReadLine()
+				string[] currentRows = Console.ReadLine()
 					.Split()
-					.Select(char.Parse)
 					.ToArray();
 				for (int c = 0; c < cols; c++)
 				{
