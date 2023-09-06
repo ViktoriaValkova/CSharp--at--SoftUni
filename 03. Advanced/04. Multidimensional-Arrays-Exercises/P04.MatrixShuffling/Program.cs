@@ -11,17 +11,7 @@
 			(int rows, int cols) = (dimensions[0], dimensions[1]);
 			string[,] matrix = new string[rows, cols];
 
-			for (int r = 0; r < rows; r ++)
-			{
-				string[] currentRow = Console.ReadLine()
-					.Split()
-					.ToArray();
-
-				for (int c = 0; c < cols; c++)
-				{
-					matrix[r,c] = currentRow[c];
-				}
-			}
+			FillMatrix(rows, cols, matrix);
 
 			string cmd = string.Empty;
 
@@ -62,6 +52,21 @@
 				}
 			}
 
+		}
+
+		private static void FillMatrix(int rows, int cols, string[,] matrix)
+		{
+			for (int r = 0; r < rows; r++)
+			{
+				string[] currentRow = Console.ReadLine()
+					.Split()
+					.ToArray();
+
+				for (int c = 0; c < cols; c++)
+				{
+					matrix[r, c] = currentRow[c];
+				}
+			}
 		}
 	}
 }
