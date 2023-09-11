@@ -19,13 +19,7 @@
 				countByNum[currentNum]++;
 			}
 
-			foreach (var kvp in countByNum)
-			{
-				if (kvp.Value % 2 == 0)
-				{
-					Console.WriteLine(kvp.Key);
-				}
-			}
+			Console.WriteLine(countByNum.Single(x=>x.Value%2==0).Key);
 		}
 	}
 }

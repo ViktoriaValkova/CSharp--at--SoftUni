@@ -1,4 +1,6 @@
-﻿namespace P05.CountSymbols
+﻿using System.Collections.Specialized;
+
+namespace P05.CountSymbols
 {
 	internal class Program
 	{
@@ -6,7 +8,7 @@
 		{
 			string input = Console.ReadLine();
 
-			Dictionary<char, int> charsByCount = new Dictionary<char, int>();
+			SortedDictionary<char, int> charsByCount = new SortedDictionary<char, int>();
 
 			foreach (char ch in input)
 			{
@@ -17,7 +19,7 @@
 				charsByCount[ch]++;
 			}
 
-			foreach (var kvp in charsByCount.OrderBy(x=>x.Key))
+			foreach (var kvp in charsByCount)
 			{
 				Console.WriteLine($"{kvp.Key}: {kvp.Value} time/s");
 			}

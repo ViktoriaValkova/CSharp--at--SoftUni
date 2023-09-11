@@ -7,31 +7,20 @@
 			int[] lengths = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries).Select(int.Parse).ToArray();
 			int firstLength = lengths[0];
 			int secondLength = lengths[1];
-			Dictionary<double, int> nums = new Dictionary<double, int>();
+			HashSet<int> firstSet = new HashSet<int>();
+			HashSet<int> secondSet = new HashSet<int>();
+
 			for (int i = 0; i < firstLength; i++)
 			{
-				double num = double.Parse(Console.ReadLine());
-				if (!nums.ContainsKey(num))
-				{
-					    nums.Add(num, 0);
-				}
+				firstSet.Add(int.Parse(Console.ReadLine()));
 			}
 			for (int i = 0; i < secondLength; i++)
 			{
-				double num = double.Parse(Console.ReadLine());
-				if (nums.ContainsKey(num))
-				{
-					nums[num]++;
-				}
+				secondSet.Add(int.Parse(Console.ReadLine()));
 			}
 
-			foreach (var kvp in nums)
-			{
-				if (kvp.Value > 0)
-				{
-					Console.Write($"{kvp.Key} ");
-				}
-			}
+			firstSet.IntersectWith(secondSet);
+			Console.WriteLine(string.Join(' ',firstSet));
 		}
 	}
 }
