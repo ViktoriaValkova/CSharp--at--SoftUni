@@ -36,23 +36,20 @@
 
 			string colorToLookFor = itemInfo[0];
 			string itemToLookFor = itemInfo[1];
-			bool correctColor = false;
+
 			foreach (var kvp in clothesByCountAndColor)
 			{
 				Console.WriteLine($"{kvp.Key} clothes:");
-				if (kvp.Key == colorToLookFor)
-				{
-					correctColor = true;
-				}
+				
 				foreach (var itemAndCount in kvp.Value)
 				{
-					if (correctColor && itemAndCount.Key == itemToLookFor)
+					string result = $"* {itemAndCount.Key} - {itemAndCount.Value}";
+					if (kvp.Key==colorToLookFor && itemAndCount.Key == itemToLookFor)
 					{
-						Console.WriteLine($"* {itemAndCount.Key} - {itemAndCount.Value} (found!)");
-						correctColor = false;
-						continue;
+						result += " (found!)";
 					}
-					Console.WriteLine($"* {itemAndCount.Key} - {itemAndCount.Value}");
+
+					Console.WriteLine(result);
 				}
 			}
 		}
